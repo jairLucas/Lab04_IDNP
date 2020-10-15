@@ -1,54 +1,37 @@
 package com.jk.lab04_idnp;
 
-public class Estudiante {
+import java.io.Serializable;
 
-    private String nombre;
-    private String apellido;
-    private int cui;
-    private int dni;
-    private int edad;
+public class Estudiante implements Serializable {
+    private String nombre, apellido, cui;
 
-    public Estudiante(String _nombre, String _apellido, int _cui, int _dni, int _edad){
-        this.apellido=_apellido;
-        this.nombre=_nombre;
-        this.dni=_dni;
-        this.edad=_edad;
-        this.cui=_cui;
+    public Estudiante(){
+
     }
-
+    public Estudiante(String nombre, String apellido, String cui){
+        this.nombre=nombre;
+        this.apellido=apellido;
+        this.cui=cui;
+    }
     public String getNombre(){
         return nombre;
     }
     public String getApellido(){
         return apellido;
     }
-    public int getCui(){
+    public String getCui(){
         return cui;
     }
-    public int getDni(){
-        return dni;
+    public void setNombre(String nombre){
+        this.nombre=nombre;
     }
-    public int getEdad(){
-        return edad;
+    public void setApellido(String apellido){
+        this.apellido=apellido;
     }
-
-    public void setNombre(String _nombre){
-        this.nombre=_nombre;
+    public void setCui(String cui){
+        this.cui=cui;
     }
-    public void setApellido(String _apellido){
-        this.apellido=_apellido;
-    }
-    public void setCui(int _cui){
-        this.cui=_cui;
-    }
-    public void setDni(int  _dni){
-        this.dni=_dni;
-    }
-    public void setEdad(int  _edad){
-        this.edad =_edad;
-    }
-
     public String toString(){
-        return this.nombre + "  " + this.apellido;
+        return nombre+apellido+cui;
     }
 }

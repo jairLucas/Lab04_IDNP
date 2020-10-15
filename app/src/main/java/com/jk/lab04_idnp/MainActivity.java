@@ -5,47 +5,48 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    private ListView lista;
+    private Adaptador adaptador;
+    private ArrayList<Estudiante>arrayAlumnos;
 
-    private TextView tv1;
-    private ListView listView1;
-    private Button btnAgregar;
-
-    ArrayList<String> lista_estudiantes= new ArrayList<String>();
-    ArrayAdapter myAdapter;
-
-    String item;
+    //private ArrayList <Estudiante>alumnos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView1 =  (ListView) findViewById(R.id.listView1);
-        btnAgregar = (Button) findViewById(R.id.btnAgregar);
-
-        lista_estudiantes.add("alejandro");
-        lista_estudiantes.add("daniel");
-        //configurando listview
-        myAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, lista_estudiantes);
-        listView1.setAdapter(myAdapter);
-
-        btnAgregar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(MainActivity.this,ActivityRegistro.class);
-
+        lista=(ListView)findViewById(R.id.listaAlumnos);
+        adaptador=new Adaptador(this,GetArrayItems());
+        lista.setAdapter(adaptador);
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            public void onItemClick(AdapterView<?>parent, View view,int position, long id){
+                Intent i=new Intent(MainActivity.this, Activity_dos.class);
+                i.putExtra("objetoData",arrayAlumnos.get(position));
                 startActivity(i);
             }
         });
+       /* ArrayList<Estudiante>listita=new ArrayList<Estudiante>();
+        listita.add(new Estudiante("Cleofe","Huamani","2121"));
+       // alumnos=new ArrayList<>();
 
+
+        ArrayAdapter <Estudiante> adapter=new ArrayAdapter<Estudiante(MainActivity.this,android.R.layout.simple_list_item_1,listita );
+        lista.setAdapter(adapter);*/
+
+    }
+    private ArrayList<Estudiante>GetArrayItems(){
+        ArrayList<Estudiante>listItems=new ArrayList<>();
+        listItems.add(new Estudiante("cleofe", "huamani","2323"));
+        listItems.add(new Estudiante("cleofe", "huamani","2323"));
+        listItems.add(new Estudiante("cleofe", "huamani","2323"));
+        return listItems;
     }
 }

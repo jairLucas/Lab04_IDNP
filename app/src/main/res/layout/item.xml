@@ -5,19 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    >
 
-    <ListView
-        android:id="@+id/listaAlumnos"
+    <TextView
+        android:id="@+id/dr1"
         android:layout_width="match_parent"
-        android:layout_height="645dp">
-
-
-    </ListView>
-    <Button
-        android:id="@+id/registrar2"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
-        android:text="Registrar" />
+        android:text="Nombre" />
+
+    <TextView
+        android:id="@+id/dr2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Apellido" />
+
+    <TextView
+        android:id="@+id/dr3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cui" />
 </LinearLayout>
